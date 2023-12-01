@@ -17,4 +17,11 @@ jobs:
               uses: docker/login-action@v3
               with:
                 username: ${{ secrets.DOCKERHUB_USERNAME }}
-                password: ${{ secrets.DOCKERHUB_PASSWORD }} 
+                password: ${{ secrets.DOCKERHUB_PASSWORD }}
+            
+            - name: build our code
+              env:
+                IMAGE_NAME: workflow101
+                VERSION: latest
+              run: |
+                  docker build -t ${IMAGE_NAME}:${VERSION} .
