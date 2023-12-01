@@ -23,5 +23,7 @@ jobs:
               env:
                 IMAGE_NAME: workflow101
                 VERSION: latest
+                USERNAME: adebisibiola
               run: |
                   docker build -t ${IMAGE_NAME}:${VERSION} .
+                  docker push $USERNAME/$IMAGE_NAME:$VERSION
